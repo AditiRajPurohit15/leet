@@ -1,27 +1,29 @@
 class MinStack {
-    Stack<Integer> stack;
+    Stack<Integer> stk;
     Stack<Integer> minStack;
+
+
     public MinStack() {
-        stack=new Stack<>();
+        stk=new Stack<>();
         minStack=new Stack<>();
     }
     
     public void push(int value) {
-        stack.push(value);
+        stk.push(value);
         if(minStack.isEmpty()){
             minStack.push(value);
         }else{
-             minStack.push(Math.min(value, minStack.peek()));
+            minStack.push(Math.min(value,minStack.peek()));
         }
     }
     
     public void pop() {
-        stack.pop();
+        stk.pop();
         minStack.pop();
     }
     
     public int top() {
-        return stack.peek();
+        return stk.peek();
     }
     
     public int getMin() {
