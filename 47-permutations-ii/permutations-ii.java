@@ -16,7 +16,7 @@ class Solution {
             allCombination(ans,nums,i+1);
             swap(i,j,nums);
         }
-        set.add(nums[i]);
+        // set.add(nums[i]);
     }
     public void swap(int i,int j,int[] nums){
         int temp=nums[i];
