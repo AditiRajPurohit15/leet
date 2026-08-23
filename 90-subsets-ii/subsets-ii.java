@@ -1,21 +1,20 @@
 class Solution {
-    public void subs(List<List<Integer>> ans,List<Integer> list,int[] nums,int i,boolean picked){
-        if(i==nums.length){
-            ans.add(new ArrayList<>(list));
-            return;
-        }
-        if(i==0 || nums[i]!=nums[i-1] || picked){
-            list.add(nums[i]);
-            subs(ans,list,nums,i+1,true);
+    public void subs(List<List<Integer>> ans,List<Integer> list,int[] nums,int i){
+        ans.add(new ArrayList<>(list));
+        for(int j=i;j<nums.length;j++){
+            if(j>i && nums[j]==nums[j-1]){
+                continue;
+            }
+            list.add(nums[j]);
+            subs(ans,list,nums,j+1);
             list.remove(list.size()-1);
         }
-        subs(ans,list,nums,i+1,false);
     }
     public List<List<Integer>> subsetsWithDup(int[] nums) {
         Arrays.sort(nums);
        List<List<Integer>> ans = new ArrayList<>();
         List<Integer> list = new ArrayList<>();
-        subs(ans,list,nums,0,true);
+        subs(ans,list,nums,0);
         return ans; 
     }
 }
