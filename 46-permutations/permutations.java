@@ -10,11 +10,11 @@ class Solution {
 
         for(int i=0;i<nums.length;i++){
             if(used[i])continue;
-            used[i]=true;
             list.add(nums[i]);
+            used[i]=true;
             solve(nums,used);
-            used[i]=false;
             list.remove(list.size()-1);
+            used[i]=false;
         }
     }
     public List<List<Integer>> permute(int[] nums) {
