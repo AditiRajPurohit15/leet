@@ -9,11 +9,12 @@ class Solution {
                     ten++;
                 }else return false;
             }else{
-                if(ten>=1 && five>=1){
-                    ten--;
+                if(five>=1 && ten>=1){
                     five--;
-                }else if(five>=3)five-=3;
-                else return false;
+                    ten--;
+                }else if(five>=3){
+                    five-=3;
+                }else return false;
             }
         }
         return true;
